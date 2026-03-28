@@ -1,0 +1,1786 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeCorp — Plataforma de Treinamentos</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Bricolage+Grotesque:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- ══════════════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════════════ -->
+    <aside class="sidebar collapsed" id="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="src/logo.png"
+          alt="SafeCorp Logo"
+          class="tenant-logo"
+          onerror="
+            this.src =
+              'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23A78BFA\' stroke-width=\'2\'><path d=\'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\'/></svg>'
+          "
+        />
+        <span class="tenant-name">SafeCorp</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a
+          href="#"
+          class="nav-item active"
+          onclick="
+            showScreen('dashboard');
+            return false;
+          "
+        >
+          <span class="nav-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="7" height="9"></rect>
+              <rect x="14" y="3" width="7" height="5"></rect>
+              <rect x="14" y="12" width="7" height="9"></rect>
+              <rect x="3" y="16" width="7" height="5"></rect>
+            </svg>
+          </span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a
+          href="#"
+          class="nav-item"
+          onclick="
+            showScreen('mundo');
+            return false;
+          "
+        >
+          <span class="nav-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              ></path>
+            </svg>
+          </span>
+          <span class="nav-label">Treinamentos</span>
+        </a>
+        <a
+          href="#"
+          class="nav-item"
+          onclick="
+            showScreen('perfil');
+            return false;
+          "
+        >
+          <span class="nav-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span class="nav-label">Meu Perfil</span>
+        </a>
+        <a
+          href="#"
+          class="nav-item"
+          onclick="
+            showScreen('ranking');
+            return false;
+          "
+        >
+          <span class="nav-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M2 20h20M5 20v-8M12 20V4M19 20v-12"></path>
+            </svg>
+          </span>
+          <span class="nav-label">Ranking</span>
+        </a>
+        <a
+          href="#"
+          class="nav-item"
+          onclick="
+            showScreen('relatorios');
+            return false;
+          "
+        >
+          <span class="nav-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </span>
+          <span class="nav-label">Relatórios</span>
+        </a>
+        <a
+          href="#"
+          class="nav-item admin-only"
+          onclick="
+            showScreen('admin');
+            return false;
+          "
+        >
+          <span class="nav-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5c-1.1 0-2 .9-2 2v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <polyline points="17 11 19 13 23 9"></polyline>
+            </svg>
+          </span>
+          <span class="nav-label">Administrador</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a
+          href="#"
+          class="nav-item"
+          onclick="
+            showScreen('configuracoes');
+            return false;
+          "
+        >
+          <span class="nav-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+          </span>
+          <span class="nav-label">Configurações</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ══════════════════════════════════════════════
+     MAIN
+══════════════════════════════════════════════ -->
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="toggle-sidebar-btn" onclick="toggleSidebar()">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <h1 class="topbar-title" id="topbar-title">Visão Geral</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <button
+            class="topbar-btn notification-bell"
+            onclick="showScreen('notificacoes')"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="badge-dot"></span>
+          </button>
+          <button class="topbar-btn help-btn" onclick="showScreen('ajuda')">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </button>
+
+          <div class="user-profile">
+            <div class="avatar-placeholder">RS</div>
+            <div class="user-info">
+              <span class="user-name">Rafael Santos</span>
+              <span class="user-role">Centro de Operação Integrado</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- ══════════════ DASHBOARD ══════════════ -->
+        <div id="screen-dashboard" class="screen active">
+          <div class="dash-page-header">
+            <h2>Bem-vindo de volta, Rafael.</h2>
+            <p>
+              Seu progresso está excelente, mas há um treinamento de segurança
+              pendente na sua trilha.
+            </p>
+          </div>
+
+          <div class="dash-metrics">
+            <div class="dash-metric">
+              <div class="dash-metric-label">Progresso Geral</div>
+              <div class="dash-metric-value">65%</div>
+              <div class="dash-metric-sub">Módulo 2 de 6 em andamento</div>
+              <div class="dash-metric-badge badge-blue">4 / 6 módulos</div>
+              <div
+                class="dash-metric-bar"
+                style="
+                  background: linear-gradient(90deg, var(--blue-500), #93c5fd);
+                  width: 65%;
+                "
+              ></div>
+            </div>
+            <div class="dash-metric">
+              <div class="dash-metric-label">Experiência Acumulada</div>
+              <div class="dash-metric-value">3.450</div>
+              <div class="dash-metric-sub">XP total conquistado</div>
+              <div class="dash-metric-badge badge-purple">+240 esta semana</div>
+              <div
+                class="dash-metric-bar"
+                style="
+                  background: linear-gradient(90deg, var(--brand), #a78bfa);
+                  width: 72%;
+                "
+              ></div>
+            </div>
+            <div class="dash-metric">
+              <div class="dash-metric-label">Nível Técnico</div>
+              <div class="dash-metric-value">7</div>
+              <div class="dash-metric-sub">Especialista em Operações</div>
+              <div class="dash-metric-badge badge-purple">Nv. 7</div>
+              <div
+                class="dash-metric-bar"
+                style="
+                  background: linear-gradient(
+                    90deg,
+                    var(--brand-dark),
+                    var(--brand)
+                  );
+                  width: 55%;
+                "
+              ></div>
+            </div>
+            <div class="dash-metric">
+              <div class="dash-metric-label">Total de</div>
+              <div class="dash-metric-value">12</div>
+              <div class="dash-metric-sub">dias consecutivos</div>
+              <div class="dash-metric-badge badge-amber">12 dias</div>
+              <div
+                class="dash-metric-bar"
+                style="
+                  background: linear-gradient(90deg, var(--amber-500), #fcd34d);
+                  width: 80%;
+                "
+              ></div>
+            </div>
+          </div>
+
+          <div class="dash-continue">
+            <div class="dash-continue-left">
+              <div class="dash-continue-tag">
+                <span class="tag-dot"></span>
+                Trilha ativa
+              </div>
+              <div class="dash-continue-title">Segurança e Operações NR</div>
+              <div class="dash-continue-sub">
+                Módulo 2 de 6 &nbsp;·&nbsp; Equipamentos de Proteção (NR-06)
+              </div>
+              <div class="dash-continue-prog">
+                <div class="prog-track">
+                  <div class="prog-fill" style="width: 33%"></div>
+                </div>
+                <span class="prog-label">33% concluído</span>
+              </div>
+            </div>
+            <button class="btn-continue-main" onclick="showScreen('mundo')">
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Continuar Trilha
+            </button>
+          </div>
+
+          <div class="dash-bottom">
+            <div>
+              <div class="dash-section-header">
+                <span class="dash-section-title">Seus Treinamentos</span>
+                <a class="dash-section-link" onclick="showScreen('mundo')">
+                  Ver todos
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+              <div class="dash-trainings">
+                <div class="t-card" onclick="showScreen('mundo')">
+                  <div class="t-icon-wrap" style="background: var(--green-100)">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--green-700)"
+                      stroke-width="1.8"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      ></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <path d="M9 15l2 2 4-4"></path>
+                    </svg>
+                  </div>
+                  <div class="t-name">NR-01 Integração</div>
+                  <div class="t-meta">Conceitos fundamentais · 3 missões</div>
+                  <div class="t-prog-bar">
+                    <div
+                      class="t-prog-fill"
+                      style="width: 100%; background: var(--green-500)"
+                    ></div>
+                  </div>
+                  <div class="t-footer">
+                    <span class="t-status done">Concluído</span>
+                    <span class="t-pct" style="color: var(--green-700)"
+                      >+150 XP</span
+                    >
+                  </div>
+                </div>
+
+                <div class="t-card" onclick="showScreen('mundo')">
+                  <div
+                    class="t-icon-wrap"
+                    style="background: var(--brand-light)"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--brand)"
+                      stroke-width="1.8"
+                    >
+                      <path
+                        d="M2 20a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V8.2a2 2 0 0 0-1.28-1.87L12.5 2.2a2 2 0 0 0-1 0L3.28 6.33A2 2 0 0 0 2 8.2z"
+                      ></path>
+                      <path d="M7 11v-1a5 5 0 0 1 10 0v1"></path>
+                    </svg>
+                  </div>
+                  <div class="t-name">NR-06 Equipamentos de Proteção</div>
+                  <div class="t-meta">EPIs e uso correto · 4 missões</div>
+                  <div class="t-prog-bar">
+                    <div
+                      class="t-prog-fill"
+                      style="width: 45%; background: var(--brand)"
+                    ></div>
+                  </div>
+                  <div class="t-footer">
+                    <span class="t-status active">Em andamento</span>
+                    <span class="t-pct">45%</span>
+                  </div>
+                </div>
+
+                <div class="t-card locked">
+                  <div class="t-lock-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <rect
+                        x="3"
+                        y="11"
+                        width="18"
+                        height="11"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                  </div>
+                  <div class="t-icon-wrap" style="background: var(--gray-100)">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--gray-400)"
+                      stroke-width="1.8"
+                    >
+                      <rect
+                        x="3"
+                        y="11"
+                        width="18"
+                        height="11"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                  </div>
+                  <div class="t-name">NR-23 Prevenção de Incêndios</div>
+                  <div class="t-meta">Contenção e evacuação · 4 missões</div>
+                  <div class="t-prog-bar">
+                    <div
+                      class="t-prog-fill"
+                      style="width: 0%; background: var(--gray-300)"
+                    ></div>
+                  </div>
+                  <div class="t-footer">
+                    <span class="t-status locked">Bloqueado</span>
+                  </div>
+                </div>
+
+                <div class="t-card locked">
+                  <div class="t-lock-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <rect
+                        x="3"
+                        y="11"
+                        width="18"
+                        height="11"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                  </div>
+                  <div class="t-icon-wrap" style="background: var(--gray-100)">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--gray-400)"
+                      stroke-width="1.8"
+                    >
+                      <path
+                        d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="t-name">NR-35 Trabalho em Altura</div>
+                  <div class="t-meta">Segurança em altura · 5 missões</div>
+                  <div class="t-prog-bar">
+                    <div
+                      class="t-prog-fill"
+                      style="width: 0%; background: var(--gray-300)"
+                    ></div>
+                  </div>
+                  <div class="t-footer">
+                    <span class="t-status locked">Bloqueado</span>
+                  </div>
+                </div>
+
+                <div
+                  class="t-card"
+                  onclick="showScreen('relatorios')"
+                  style="
+                    grid-column: span 2;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 14px;
+                    padding: 14px 16px;
+                  "
+                >
+                  <div
+                    class="t-icon-wrap"
+                    style="
+                      background: var(--blue-100);
+                      margin-bottom: 0;
+                      flex-shrink: 0;
+                    "
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--blue-500)"
+                      stroke-width="1.8"
+                    >
+                      <path
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      />
+                    </svg>
+                  </div>
+                  <div style="flex: 1">
+                    <div class="t-name">Meu Relatório de Desempenho</div>
+                    <div class="t-meta">
+                      Índice de conformidade:
+                      <strong style="color: var(--brand)">92%</strong>
+                      &nbsp;·&nbsp; Taxa de acerto:
+                      <strong style="color: var(--green-700)">88%</strong>
+                    </div>
+                  </div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--gray-300)"
+                    stroke-width="2"
+                    width="16"
+                    height="16"
+                  >
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="dash-section-header">
+                <span class="dash-section-title">Ranking Corporativo</span>
+                <a class="dash-section-link" onclick="showScreen('ranking')">
+                  Ver mais
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+              <div class="dash-ranking">
+                <div class="dash-ranking-head">
+                  <span class="dash-ranking-head-left">Leaderboard</span>
+                  <span class="dash-ranking-head-right">há 2 horas</span>
+                </div>
+                <div class="rank-row">
+                  <div class="rank-pos-num p1">1</div>
+                  <div
+                    class="rank-av"
+                    style="
+                      background: linear-gradient(135deg, #b45309, #f59e0b);
+                    "
+                  >
+                    MS
+                  </div>
+                  <div class="rank-name-col">Mariana Souza</div>
+                  <div class="rank-xp-val">4.900 XP</div>
+                </div>
+                <div class="rank-row is-me">
+                  <div class="rank-pos-num p2">2</div>
+                  <div
+                    class="rank-av"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--brand-dark),
+                        #1d4ed8
+                      );
+                    "
+                  >
+                    RS
+                  </div>
+                  <div class="rank-name-col">
+                    Rafael Santos
+                    <span class="you-badge">Você</span>
+                  </div>
+                  <div class="rank-xp-val mine">3.450 XP</div>
+                </div>
+                <div class="rank-row">
+                  <div class="rank-pos-num p3">3</div>
+                  <div
+                    class="rank-av"
+                    style="
+                      background: linear-gradient(135deg, #52525b, #a1a1aa);
+                    "
+                  >
+                    CL
+                  </div>
+                  <div class="rank-name-col">Carlos Lima</div>
+                  <div class="rank-xp-val">3.100 XP</div>
+                </div>
+                <div class="rank-row">
+                  <div class="rank-pos-num pn">4</div>
+                  <div
+                    class="rank-av"
+                    style="
+                      background: linear-gradient(135deg, #16a34a, #15803d);
+                    "
+                  >
+                    AC
+                  </div>
+                  <div class="rank-name-col">Ana Costa</div>
+                  <div class="rank-xp-val">2.780 XP</div>
+                </div>
+                <div class="rank-row">
+                  <div class="rank-pos-num pn">5</div>
+                  <div
+                    class="rank-av"
+                    style="
+                      background: linear-gradient(135deg, #0f766e, #14b8a6);
+                    "
+                  >
+                    JP
+                  </div>
+                  <div class="rank-name-col">João Paulo</div>
+                  <div class="rank-xp-val">2.540 XP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ MUNDO / TREINAMENTOS ══════════════ -->
+        <div id="screen-mundo" class="screen">
+          <div class="page-header">
+            <h2 class="section-title">Cursos e Trilhas</h2>
+            <p class="section-subtitle">
+              Complete os módulos sequencialmente para desbloquear novas badges
+              de qualificação.
+            </p>
+          </div>
+
+          <div class="mundos-list">
+            <div class="mundo-card completed">
+              <div class="mundo-icon-wrapper">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <path d="M16 13H8"></path>
+                  <path d="M16 17H8"></path>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <div class="mundo-details">
+                <h4>Módulo 1: NR-01 Integração</h4>
+                <p>Conceitos fundamentais de segurança do trabalho.</p>
+              </div>
+              <div class="mundo-action">
+                <span class="status-tag success">Concluído</span>
+              </div>
+            </div>
+
+            <div class="mundo-card active">
+              <div class="mundo-icon-wrapper">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M2 20a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V8.2a2 2 0 0 0-1.28-1.87L12.5 2.2a2 2 0 0 0-1 0L3.28 6.33A2 2 0 0 0 2 8.2z"
+                  ></path>
+                  <path d="M7 11v-1a5 5 0 0 1 10 0v1"></path>
+                </svg>
+              </div>
+              <div class="mundo-details">
+                <h4>Módulo 2: Equipamentos de Proteção (NR-06)</h4>
+                <p>
+                  Identificação e uso correto de EPIs no ambiente operacional.
+                </p>
+              </div>
+              <div class="mundo-action">
+                <button
+                  class="btn-primary"
+                  onclick="
+                    initEpiMinigame();
+                    showScreen('missao-epi');
+                  "
+                >
+                  Iniciar Missão
+                </button>
+              </div>
+            </div>
+
+            <div class="mundo-card active">
+              <div class="mundo-icon-wrapper">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                </svg>
+              </div>
+              <div class="mundo-details">
+                <h4>Módulo 3: Segurança Elétrica (NR-10)</h4>
+                <p>Procedimentos de segurança em instalações elétricas, identificação de riscos e EPIs específicos.</p>
+              </div>
+              <div class="mundo-action">
+                <button
+                  class="btn-primary"
+                  onclick="
+                    initQuizNR10();
+                    showScreen('quiz-nr10');
+                  "
+                >
+                  Iniciar Quiz
+                </button>
+              </div>
+            </div>
+
+            <div class="mundo-card active">
+              <div class="mundo-icon-wrapper">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-5.057 2.5-7.5 0 0-3.73 2.04-5.14 6.032A9.66 9.66 0 0 0 7 14.5c0 4.418 3.582 8 8 8s8-3.582 8-8a9.66 9.66 0 0 0-1.36-2.968C19.23 3.54 15.5 1.5 15.5 1.5c2.724 2.443 3.572 5.357 2.5 7.5-.5 1-1 1.62-1 3a2.5 2.5 0 0 0 2.5 2.5"></path>
+                </svg>
+              </div>
+              <div class="mundo-details">
+                <h4>Módulo 4: Combate a Incêndio (NR-23)</h4>
+                <p>Classificação de incêndios e uso correto de extintores em situações de emergência.</p>
+              </div>
+              <div class="mundo-action">
+                <button
+                  class="btn-primary"
+                  onclick="
+                    initFireGame();
+                    showScreen('fire-nr23');
+                  "
+                >
+                  Iniciar Simulação
+                </button>
+              </div>
+            </div>
+
+            <div class="mundo-card locked">
+              <div class="mundo-icon-wrapper">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect
+                    x="3"
+                    y="11"
+                    width="18"
+                    height="11"
+                    rx="2"
+                    ry="2"
+                  ></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div class="mundo-details">
+                <h4>Módulo 5: Prevenção de Assédio e Diversidade (NR 01 / Lei 14.457/22):</h4>
+                <p>Capacitação para promover um ambiente de trabalho seguro e respeitoso, focada no combate ao assédio e na promoção da igualdade.</p>
+              </div>
+              <div class="mundo-action">
+                <span class="status-tag outline">Bloqueado</span>
+              </div>
+            </div>
+
+            <div class="mundo-card locked">
+              <div class="mundo-icon-wrapper">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect
+                    x="3"
+                    y="11"
+                    width="18"
+                    height="11"
+                    rx="2"
+                    ry="2"
+                  ></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div class="mundo-details">
+                <h4>Módulo 5: Lei Geral de Proteção de Dados:</h4>
+                <p>Treinamento sobre a Lei Geral de Proteção de Dados para garantir que a equipe saiba manusear dados de clientes e colegas com segurança.</p>
+              </div>
+              <div class="mundo-action">
+                <span class="status-tag outline">Bloqueado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ MISSÃO EPI ══════════════ -->
+        <div id="screen-missao-epi" class="screen">
+          <div class="card game-header">
+            <div>
+              <h2 class="section-title">Simulação Operacional: NR-06</h2>
+              <p class="text-sm">
+                Arraste os equipamentos obrigatórios do inventário para o
+                manequim de acordo com o cenário (Construção Civil).
+              </p>
+            </div>
+          </div>
+
+          <div class="game-container">
+            <div class="inventory-panel">
+              <h3 class="panel-title">Inventário de EPIs</h3>
+              <div class="draggable-item" draggable="true" data-epi="capacete">
+                <svg
+                  class="item-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 2a8 8 0 00-8 8v4h16v-4a8 8 0 00-8-8z" />
+                  <rect x="2" y="14" width="20" height="2" />
+                </svg>
+                <span>Capacete Classe B</span>
+              </div>
+              <div class="draggable-item" draggable="true" data-epi="luva">
+                <svg
+                  class="item-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M14 2h-4v10H8V6H6v8a6 6 0 0012 0V4h-2v8h-2V2z" />
+                </svg>
+                <span>Luvas de Raspa</span>
+              </div>
+              <div class="draggable-item" draggable="true" data-epi="bota">
+                <svg
+                  class="item-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 10v10h16v-4c0-3-4-6-6-6h-2V2H8v8H4z" />
+                </svg>
+                <span>Botas de Segurança</span>
+              </div>
+              <div class="draggable-item" draggable="true" data-epi="oculos">
+                <svg
+                  class="item-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="10" width="8" height="6" rx="2" />
+                  <rect x="14" y="10" width="8" height="6" rx="2" />
+                  <path d="M10 13h4M2 13H0M24 13h-2" />
+                </svg>
+                <span>Óculos (Opcional aqui)</span>
+              </div>
+            </div>
+
+            <div class="character-panel">
+              <div class="character-silhouette">
+                <svg
+                  viewBox="0 0 100 200"
+                  fill="none"
+                  stroke="#CBD5E1"
+                  stroke-width="2"
+                  width="150"
+                  height="300"
+                >
+                  <circle cx="50" cy="30" r="18" />
+                  <path
+                    d="M30 60 Q50 50 70 60 L85 110 L70 115 L60 80 L60 140 L40 140 L40 80 L30 115 L15 110 Z"
+                  />
+                  <path d="M40 140 L30 190 L50 190 L50 140 Z" />
+                  <path d="M60 140 L50 190 L70 190 L60 140 Z" />
+                </svg>
+                <div class="drop-zone head-zone" data-accept="capacete">
+                  Cabeça
+                </div>
+                <div class="drop-zone hand-zone" data-accept="luva">Mãos</div>
+                <div class="drop-zone foot-zone" data-accept="bota">Pés</div>
+              </div>
+              <div class="game-footer">
+                <button
+                  id="finalizar-epi-btn"
+                  class="btn-primary"
+                  style="display: none"
+                  onclick="processarFimMissaoEpi()"
+                >
+                  Concluir e Resgatar XP
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ QUIZ NR-10 ══════════════ -->
+        <div id="screen-quiz-nr10" class="screen" style="display:none;">
+          <div class="card quiz-header">
+            <div class="quiz-progress">
+              <span>Questão <span id="current-question">1</span>/<span id="total-questions">5</span></span>
+              <span class="quiz-score">Pontuação: <span id="quiz-score">0</span> XP</span>
+            </div>
+            <div class="quiz-timer" id="quiz-timer">⏱️ 00:30</div>
+          </div>
+
+          <div class="card quiz-question-container">
+            <h3 class="quiz-question" id="question-text">Carregando questão...</h3>
+            <div class="quiz-options" id="quiz-options">
+              <!-- Opções geradas dinamicamente -->
+            </div>
+            <div class="quiz-feedback" id="quiz-feedback"></div>
+            <div class="quiz-attempts" id="quiz-attempts">Tentativas restantes: ❤️❤️❤️</div>
+          </div>
+
+          <div class="quiz-navigation">
+            <button class="btn-outline" id="next-question-btn" onclick="nextQuestion()" style="display:none;">Próxima Questão</button>
+          </div>
+        </div>
+
+        <!-- ══════════════ COMBATE A INCÊNDIO NR-23 ══════════════ -->
+        <div id="screen-fire-nr23" class="screen" style="display:none;">
+          <div class="fire-header">
+            <div class="fire-header-left">
+              <div class="fire-timer">
+                <span>🔥 Tempo restante:</span>
+                <span id="fire-timer">60</span>s
+              </div>
+              <div class="fire-timer-bar">
+                <div class="fire-timer-fill" id="fire-timer-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            <div class="fire-score">Pontuação: <span id="fire-score">0</span> XP</div>
+          </div>
+
+          <div class="fire-scenario">
+            <div class="fire-scene" id="fire-scene">
+              <!-- Animação do fogo -->
+              <div class="fire-animation"></div>
+              <p id="scenario-description" class="fire-description">
+                Carregando cenário...
+              </p>
+            </div>
+
+            <div class="extinguishers-grid" id="extinguishers-grid">
+              <!-- Extintores gerados dinamicamente -->
+            </div>
+          </div>
+
+          <div class="fire-feedback" id="fire-feedback"></div>
+
+          <div class="card fire-progress">
+            <span>Incêndios controlados: <span id="fires-controlled">0</span>/<span id="total-fires">5</span></span>
+          </div>
+        </div>
+
+        <!-- ══════════════ RECOMPENSA ══════════════ -->
+        <div id="screen-recompensa" class="screen flex-center">
+          <div class="card reward-card">
+            <div class="reward-header-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h2 class="reward-title">Módulo Validado!</h2>
+            <p class="reward-subtitle">
+              Você concluiu o
+              <strong id="recompensa-modulo">Módulo</strong> atendendo a todos
+              os requisitos de segurança.
+            </p>
+            <div class="reward-box">
+              <h3 class="reward-box-title">Ativos Desbloqueados</h3>
+              <div class="reward-item">
+                <div
+                  class="reward-icon-box"
+                  id="recompensa-badge-icon"
+                  style="background: transparent; padding: 0"
+                ></div>
+                <div class="reward-details">
+                  <div class="reward-name" id="recompensa-badge">
+                    Badge de Qualificação
+                  </div>
+                  <div class="reward-desc">
+                    Nova credencial técnica vinculada ao seu perfil.
+                  </div>
+                </div>
+              </div>
+              <div class="reward-item">
+                <div class="reward-icon-box xp-bg">
+                  <span class="xp-text-icon">XP</span>
+                </div>
+                <div class="reward-details">
+                  <div class="reward-name xp-color" id="recompensa-xp">
+                    +0 XP
+                  </div>
+                  <div class="reward-desc">
+                    Pontuação técnica adquirida nesta missão.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn-primary full-width"
+              onclick="showScreen('dashboard')"
+            >
+              Finalizar e Voltar
+            </button>
+          </div>
+        </div>
+
+        <!-- ══════════════ PERFIL ══════════════ -->
+        <div id="screen-perfil" class="screen">
+          <div class="card profile-header">
+            <div class="profile-avatar-lg">RS</div>
+            <div class="profile-info">
+              <h2>Rafael Santos</h2>
+              <p>Centro de Operação Integrado — ESE/SE</p>
+              <div class="level-tag">Nível Técnico 12</div>
+            </div>
+          </div>
+
+          <div class="card mt-4" style="padding: 20px">
+            <h3 style="margin-bottom: 10px; color: var(--text-primary)">
+              Minhas Conquistas
+            </h3>
+            <p
+              style="
+                color: var(--text-muted);
+                font-size: 14px;
+                margin-bottom: 20px;
+              "
+            >
+              Badges desbloqueados nos treinamentos.
+            </p>
+            <div class="badges-grid" id="perfil-badges-grid">
+              <div class="badge-card">
+                <svg
+                  class="badge-svg"
+                  viewBox="0 0 120 120"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient
+                      id="grad-blue"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stop-color="#3B82F6" />
+                      <stop offset="100%" stop-color="#1D4ED8" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M60 5 L70 15 L85 15 L90 28 L103 33 L100 47 L110 58 L100 69 L103 83 L90 88 L85 101 L70 101 L60 111 L50 101 L35 101 L30 88 L17 83 L20 69 L10 58 L20 47 L17 33 L30 28 L35 15 L50 15 Z"
+                    fill="url(#grad-blue)"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="60"
+                    cy="58"
+                    r="38"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M60 30 L40 38 L40 60 C40 75 50 88 60 92 C70 88 80 75 80 60 L80 38 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M50 62 L57 69 L72 52"
+                    fill="none"
+                    stroke="#1D4ED8"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <div class="badge-name">Cultura de Segurança</div>
+                <div class="badge-status">Desbloqueado</div>
+              </div>
+              <div class="badge-card">
+                <svg
+                  class="badge-svg"
+                  viewBox="0 0 120 120"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="filter: grayscale(100%); opacity: 0.5"
+                >
+                  <defs>
+                    <linearGradient
+                      id="grad-orange"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stop-color="#F97316" />
+                      <stop offset="100%" stop-color="#B45309" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M60 5 L70 15 L85 15 L90 28 L103 33 L100 47 L110 58 L100 69 L103 83 L90 88 L85 101 L70 101 L60 111 L50 101 L35 101 L30 88 L17 83 L20 69 L10 58 L20 47 L17 33 L30 28 L35 15 L50 15 Z"
+                    fill="url(#grad-orange)"
+                    stroke="#92400E"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="60"
+                    cy="58"
+                    r="38"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    stroke-width="3"
+                  />
+                  <path
+                    d="M40 55 C40 35 80 35 80 55 L85 55 L85 62 L35 62 L35 55 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M40 68 C40 80 55 80 55 68 M65 68 C65 80 80 80 80 68 M55 68 L65 68"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <div class="badge-name" style="color: var(--text-muted)">
+                  Especialista em EPIs
+                </div>
+                <div class="badge-status">Bloqueado</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ RANKING ══════════════ -->
+        <div id="screen-ranking" class="screen">
+          <div class="card">
+            <div class="flex-between">
+              <h3 class="panel-title">Leaderboard Corporativo</h3>
+              <span class="text-sm">Atualizado há 2 horas</span>
+            </div>
+            <table class="data-table mt-4">
+              <thead>
+                <tr>
+                  <th>Posição</th>
+                  <th>Colaborador</th>
+                  <th>Setor</th>
+                  <th>Pontuação (XP)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="rank-pos gold">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline
+                          points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                        ></polyline></svg
+                      ><span>1º</span>
+                    </div>
+                  </td>
+                  <td class="font-semibold">Mariana Souza</td>
+                  <td class="text-muted">Engenharia</td>
+                  <td class="font-bold">4.900</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td>
+                    <div class="rank-pos silver">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline
+                          points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                        ></polyline></svg
+                      ><span>2º</span>
+                    </div>
+                  </td>
+                  <td class="font-semibold">Rafael Santos (Você)</td>
+                  <td class="text-muted">Centro de Operação Integrado</td>
+                  <td class="font-bold highlight">3.450</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="rank-pos bronze">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline
+                          points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                        ></polyline></svg
+                      ><span>3º</span>
+                    </div>
+                  </td>
+                  <td class="font-semibold">Carlos Lima</td>
+                  <td class="text-muted">Manutenção</td>
+                  <td class="font-bold">3.100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ══════════════ RELATÓRIOS ══════════════ -->
+        <div id="screen-relatorios" class="screen">
+          <div class="dashboard-grid">
+            <div class="card stat-card">
+              <div class="stat-info">
+                <h3>Índice de Conformidade</h3>
+                <div class="stat-value highlight">92%</div>
+                <p class="text-sm mt-2">Treinamentos obrigatórios em dia.</p>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-info">
+                <h3>Taxa de Acerto (Avaliações)</h3>
+                <div class="stat-value">88%</div>
+                <p class="text-sm mt-2">Média global de retenção.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card relatorio-chart-card">
+            <h3 class="panel-title">Progresso Detalhado por Módulo</h3>
+            <p class="text-muted mb-6">
+              Acompanhamento do seu avanço na trilha de Segurança Operacional.
+            </p>
+            <div class="chart-wrapper">
+              <div class="chart-bar-container">
+                <div class="chart-bar" style="height: 100%">
+                  <span class="bar-value">100%</span>
+                </div>
+                <span class="bar-label">NR-01</span>
+              </div>
+              <div class="chart-bar-container">
+                <div class="chart-bar active-bar" style="height: 45%">
+                  <span class="bar-value">45%</span>
+                </div>
+                <span class="bar-label">NR-06</span>
+              </div>
+              <div class="chart-bar-container">
+                <div class="chart-bar empty-bar" style="height: 10%">
+                  <span class="bar-value">0%</span>
+                </div>
+                <span class="bar-label">NR-23</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ NOTIFICAÇÕES - CORRIGIDA ══════════════ -->
+        <div id="screen-notificacoes" class="screen">
+          <div class="screen-header">
+            <h2>Notificações</h2>
+            <p>Acompanhe seus alertas, vencimentos e conquistas.</p>
+          </div>
+          <div class="notifications-container">
+            <div class="notification-item">
+              <div class="notification-icon warning">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                  ></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div class="notification-content">
+                <p>
+                  Atenção: Sua certificação
+                  <strong>NR-35 (Trabalho em Altura)</strong> vence em 15 dias.
+                  Agende sua reciclagem.
+                </p>
+                <span class="notification-time">Hoje, 09:30</span>
+              </div>
+            </div>
+            <div class="notification-item">
+              <div class="notification-icon success">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline
+                    points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                  ></polyline>
+                </svg>
+              </div>
+              <div class="notification-content">
+                <p>
+                  Parabéns! Você concluiu o módulo NR-06 e desbloqueou a
+                  conquista: <strong>Mestre dos EPIs</strong>.
+                </p>
+                <span class="notification-time">Ontem, 14:15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ AJUDA ══════════════ -->
+        <div id="screen-ajuda" class="screen">
+          <div class="card">
+            <h2 class="section-title">Suporte e Ajuda</h2>
+            <p class="text-muted mb-6">
+              Como podemos auxiliar sua experiência na plataforma hoje?
+            </p>
+            <div class="support-grid">
+              <div class="support-box">
+                <svg
+                  class="mb-4 text-purple"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  ></path>
+                </svg>
+                <h4>Base de Conhecimento</h4>
+                <p class="text-sm">
+                  Artigos e tutoriais sobre como utilizar o sistema e regras de
+                  pontuação.
+                </p>
+                <button class="btn-outline mt-4">Acessar FAQ</button>
+              </div>
+              <div class="support-box">
+                <svg
+                  class="mb-4 text-purple"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  ></path>
+                </svg>
+                <h4>Suporte Técnico</h4>
+                <p class="text-sm">
+                  Encontrou um erro no sistema ou precisa redefinir sua senha?
+                </p>
+                <button class="btn-outline mt-4">Abrir Chamado</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ ADMIN ══════════════ -->
+        <div id="screen-admin" class="screen admin-only">
+          <div class="page-header mb-6">
+            <h2 class="section-title">Painel do Gestor (SST)</h2>
+            <p class="section-subtitle">
+              Visão geral de conformidade e indicadores de treinamento da
+              equipe.
+            </p>
+          </div>
+
+          <div class="dashboard-grid mb-6">
+            <div class="card stat-card">
+              <div class="stat-icon purple">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5c-1.1 0-2 .9-2 2v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-label">Colaboradores Ativos</div>
+                <div class="stat-value">142</div>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: #d1fae5; color: #10b981"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-label">Conformidade Global</div>
+                <div class="stat-value highlight">87%</div>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: #fee2e2; color: #ef4444"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-label">Pendências Críticas</div>
+                <div class="stat-value">12</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="card" style="grid-column: span 2">
+              <h3 class="panel-title mb-4">Taxa de Conclusão por Módulo</h3>
+              <div class="chart-wrapper">
+                <div class="chart-bar-container">
+                  <div class="chart-bar active-bar" style="height: 95%">
+                    <span class="bar-value">95%</span>
+                  </div>
+                  <span class="bar-label">NR-01</span>
+                </div>
+                <div class="chart-bar-container">
+                  <div class="chart-bar active-bar" style="height: 70%">
+                    <span class="bar-value">70%</span>
+                  </div>
+                  <span class="bar-label">NR-06</span>
+                </div>
+                <div class="chart-bar-container">
+                  <div class="chart-bar active-bar" style="height: 40%">
+                    <span class="bar-value">40%</span>
+                  </div>
+                  <span class="bar-label">NR-10</span>
+                </div>
+                <div class="chart-bar-container">
+                  <div class="chart-bar active-bar" style="height: 60%">
+                    <span class="bar-value">60%</span>
+                  </div>
+                  <span class="bar-label">NR-35</span>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="panel-title mb-4">Colaboradores em Risco</h3>
+              <table class="data-table">
+                <tbody>
+                  <tr>
+                    <td class="font-semibold">João Silva</td>
+                    <td>
+                      <span
+                        class="status-tag"
+                        style="background: #fee2e2; color: #ef4444"
+                        >NR-35 Vencida</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Marcos Paulo</td>
+                    <td>
+                      <span
+                        class="status-tag"
+                        style="background: #fef3c7; color: #f59e0b"
+                        >NR-06 Pendente</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Ana Costa</td>
+                    <td>
+                      <span
+                        class="status-tag"
+                        style="background: #fee2e2; color: #ef4444"
+                        >NR-10 Vencida</span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn-outline mt-4" style="width: 100%">
+                Ver Relatório Completo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══════════════ CONFIGURAÇÕES ══════════════ -->
+        <div id="screen-configuracoes" class="screen">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              margin-bottom: 24px;
+            "
+          >
+            <div>
+              <h2 class="section-title">Configurações da Plataforma</h2>
+              <p
+                class="section-subtitle"
+                style="color: var(--text-muted); margin-top: 4px"
+              >
+                Gerencie as preferências globais, gamificação e identidade
+                visual do seu ambiente.
+              </p>
+            </div>
+            <button
+              class="btn-primary"
+              onclick="
+                alert(
+                  'Demonstração: As configurações foram salvas com sucesso!',
+                )
+              "
+              style="padding: 10px 20px; font-size: 14px"
+            >
+              Salvar Alterações
+            </button>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+              gap: 24px;
+            "
+          >
+            <div
+              class="card"
+              style="
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+              "
+            >
+              <h3
+                style="
+                  font-size: 16px;
+                  font-weight: 700;
+                  color: var(--text-primary);
+                  border-bottom: 1px solid var(--border);
+                  padding-bottom: 12px;
+                "
+              >
+                Identidade Visual
+              </h3>
+              <div>
+                <label
+                  style="
+                    display: block;
+                    font-size: 13px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                    color: var(--text-secondary);
+                  "
+                  >Logo da Empresa</label
+                >
+                <div style="display: flex; gap: 12px; align-items: center">
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      background: var(--bg);
+                      border-radius: 8px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border: 1px dashed var(--border);
+                    "
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke="var(--text-muted)"
+                      stroke-width="2"
+                    >
+                      <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                  </div>
+                  <button class="btn-outline">Fazer Upload</button>
+                </div>
+              </div>
+              <div>
+                <label
+                  style="
+                    display: block;
+                    font-size: 13px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                    color: var(--text-secondary);
+                  "
+                  >Cor Principal (Marca)</label
+                >
+                <div style="display: flex; gap: 8px; align-items: center">
+                  <input
+                    type="color"
+                    value="#7C3AED"
+                    style="
+                      width: 40px;
+                      height: 40px;
+                      border: none;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      padding: 0;
+                      background: none;
+                    "
+                  />
+                  <input
+                    type="text"
+                    value="#7C3AED"
+                    style="
+                      flex: 1;
+                      padding: 10px 12px;
+                      border: 1px solid var(--border);
+                      border-radius: 6px;
+                      font-family: monospace;
+                      font-size: 14px;
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script src="script.js"></script>
+      </div>
+    </main>
+  </body>
+</html>

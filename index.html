@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — SafeCorp</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-wrapper">
+
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="login-logo">
+        <img src="src/logo.png" alt="SafeCorp Logo" class="tenant-logo">
+        SafeCorp
+      </div>
+      <div class="brand-content">
+        <h1 class="brand-title">Transformando<br>Conhecimento em<br>Prevenção.</h1>
+        <p class="brand-subtitle">Sua plataforma SaaS gamificada de SST e Compliance, baseada na nova matriz de riscos e cultura prevencionista.</p>
+      </div>
+    </div>
+
+    <div class="login-form-container">
+      <div class="form-header">
+        <h2>Acesse sua conta</h2>
+        <p>Preencha os dados abaixo para continuar.</p>
+      </div>
+
+      <form action="painel.html" method="GET">
+        <div class="form-group">
+          <label for="email">E-mail corporativo</label>
+          <input type="email" id="email" class="form-control" placeholder="exemplo@suaempresa.com.br" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox"> Lembrar de mim
+          </label>
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+        </div>
+
+        <button type="submit" class="btn-login">Entrar na Plataforma</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
