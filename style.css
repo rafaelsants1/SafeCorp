@@ -168,83 +168,72 @@ body:not(.login-wrapper) {
   width: var(--sidebar-collapsed-width);
 }
 
+/* ════════════════════════════════════════════════
+   SIDEBAR - CORREÇÃO DO ALINHAMENTO
+════════════════════════════════════════════════ */
+
 .sidebar-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 18px 16px 16px;
+  gap: 12px;
+  padding: 18px 16px;
   border-bottom: 1px solid var(--border-dark);
   flex-shrink: 0;
   min-height: 64px;
 }
 
+/* Controle de tamanho da logo */
 .tenant-logo {
-  width: 32px;
-  height: 32px;
+  width: 28px !important;
+  height: 28px !important;
   object-fit: contain;
-  border-radius: 8px;
   flex-shrink: 0;
+  border-radius: 6px;
 }
 
 .tenant-name {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   color: #fff;
   white-space: nowrap;
-  opacity: 1;
-  transition: opacity 0.15s;
+  line-height: 28px;
+}
+
+/* Sidebar colapsada */
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 18px 0;
+}
+
+.sidebar.collapsed .tenant-logo {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 auto;
 }
 
 .sidebar.collapsed .tenant-name {
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
-.sidebar-nav {
-  flex: 1;
-  padding: 12px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  overflow-y: auto;
-}
-
-.sidebar-nav::-webkit-scrollbar {
-  width: 0;
-}
-
+/* Itens do menu principal */
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 9px 10px;
+  gap: 12px;
+  padding: 10px 16px;
+  margin: 2px 8px;
   border-radius: var(--radius-sm);
-  color: rgba(255, 255, 255, 0.46);
+  color: rgba(255,255,255,0.46);
   font-size: 13.5px;
   font-weight: 500;
-  white-space: nowrap;
-  transition:
-    background 0.13s,
-    color 0.13s;
+  transition: all 0.13s;
   cursor: pointer;
 }
 
-.nav-item:hover {
-  background: rgba(255, 255, 255, 0.055);
-  color: rgba(255, 255, 255, 0.82);
-}
-.nav-item.active {
-  background: rgba(124, 58, 237, 0.18);
-  color: #fff;
-}
-.nav-item.active .nav-icon {
-  color: #a78bfa;
-}
-
 .nav-icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -252,14 +241,14 @@ body:not(.login-wrapper) {
 }
 
 .nav-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .nav-label {
-  opacity: 1;
-  transition: opacity 0.12s;
-  white-space: nowrap;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .sidebar.collapsed .nav-label {
@@ -267,10 +256,31 @@ body:not(.login-wrapper) {
   pointer-events: none;
 }
 
+/* ════════════════════════════════════════════════
+   SIDEBAR BOTTOM - CONFIGURAÇÕES
+════════════════════════════════════════════════ */
+
 .sidebar-bottom {
-  padding: 10px 10px 14px;
+  padding: 16px 10px 20px 10px;
+  margin-top: auto;
   border-top: 1px solid var(--border-dark);
   flex-shrink: 0;
+}
+
+/* Garantir que o item de configurações tenha o mesmo alinhamento */
+.sidebar-bottom .nav-item {
+  margin: 2px 8px;
+  padding: 10px 16px;
+}
+
+/* Ajuste para sidebar colapsada */
+.sidebar.collapsed .sidebar-bottom {
+  padding: 16px 0 20px 0;
+}
+
+.sidebar.collapsed .sidebar-bottom .nav-item {
+  justify-content: center;
+  padding: 10px 0;
 }
 
 .admin-only {
@@ -1634,7 +1644,7 @@ body.login-wrapper {
 .login-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 4px;
   font-family: var(--font-display);
   font-size: 24px;
   font-weight: 800;
@@ -1642,8 +1652,8 @@ body.login-wrapper {
 }
 
 .login-logo img {
-  width: 36px;
-  height: 36px;
+  width: 78px;
+  height: 78px;
   object-fit: contain;
 }
 
